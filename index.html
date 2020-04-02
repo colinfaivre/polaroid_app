@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Polaroid App</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="photobooth">
+    <div class="controls">
+ <!-- <div class="rgb">
+        <label for="rmin">Red Min:</label>
+        <input type="range" min=0 max=255 name="rmin">
+        <label for="rmax">Red Max:</label>
+        <input type="range" min=0 max=255 name="rmax">
+
+        <br>
+
+        <label for="gmin">Green Min:</label>
+        <input type="range" min=0 max=255 name="gmin">
+        <label for="gmax">Green Max:</label>
+        <input type="range" min=0 max=255 name="gmax">
+
+        <br>
+
+        <label for="bmin">Blue Min:</label>
+        <input type="range" min=0 max=255 name="bmin">
+        <label for="bmax">Blue Max:</label>
+        <input type="range" min=0 max=255 name="bmax">
+      </div> -->
+    </div>
+
+    <canvas class="photo"></canvas>
+    <video class="player" hidden></video>
+    <div class="strip"></div>
+  </div>
+
+  <button class="take-photo-button" onClick="takePhoto()">
+    <span class="material-icons">
+      camera_alt
+    </span>
+  </button>
+
+  <audio class="snap" src="assets/sounds/snap.mp3" hidden></audio>
+
+  <script src="scripts.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+        .then(reg => {
+          console.log('SW registration success');
+        })
+        .catch(err => {
+          console.log('SW registration failed', err);
+        })
+      })
+    }
+  </script>
+</body>
+</html>
